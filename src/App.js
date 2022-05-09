@@ -18,9 +18,16 @@ export default function App() {
           rate: action.rate,
         }
       case 'submitRate':
-        return {
-          ...state,
-          isRated: !state.isRated
+        if(state.rate > 0) {  
+          return {
+            ...state,
+            isRated: !state.isRated
+          }
+        }
+        else {
+          return {
+            ...state
+          }
         }
       case 'cancelRate':
         return {
